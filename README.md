@@ -41,8 +41,8 @@ Tu as tout à fait raison de le souligner. C'est un point **crucial** car la ver
 
 1. **Cloner le dépôt :**
 ```bash
-git clone https://github.com/ton-username/votre-depot.git
-cd votre-depot
+git clone https://github.com/julienwetzel/NVIDIA-POP-OS-SENSORS.git
+cd NVIDIA-POP-OS-SENSORS
 
 ```
 
@@ -54,6 +54,7 @@ chmod +x install.sh
 
 ```
 
+Lancer l'application : Après le redémarrage, vous trouverez Fan Control dans votre lanceur d'applications habituel (GNOME, App Grid, etc.) grâce au raccourci installé automatiquement.
 
 3. **Redémarrer :** Le script configure une tâche `cron` pour que les capteurs soient prêts dès le démarrage du système.
 
