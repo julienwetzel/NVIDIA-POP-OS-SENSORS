@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Fan Control
+Comment=Gestion des ventilateurs
+Exec=/home/jwl/fan-control/target/release/fan-control
+PrefersNonDefaultGPU=true
+Keywords=fan
+Icon=fan
+Terminal=false
+Categories=Settings;System;
