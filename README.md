@@ -26,6 +26,17 @@ Tu as tout à fait raison de le souligner. C'est un point **crucial** car la ver
 
 ---
 
+## ⚠️ Configuration BIOS indispensable
+
+Pour que l'application puisse prendre le contrôle total de vos ventilateurs sous Linux, vous devez modifier un réglage dans votre BIOS :
+
+1. Redémarrez votre ordinateur et accédez au **BIOS** (souvent via la touche `Suppr` ou `F2`).
+2. Allez dans les réglages de ventilation (**Smart Fan**, **Hardware Monitor** ou **Fan Control**).
+3. Réglez les ventilateurs que vous souhaitez piloter (ex: SYS_FAN) sur le mode **Full Speed** (Vitesse maximale).
+4. Enregistrez et quittez.
+
+**Pourquoi ?** Si le BIOS gère lui-même la régulation, il entrera en conflit avec l'application. En forçant le mode "Full Speed", vous débloquez la plage de modulation PWM complète, permettant au logiciel de réduire la vitesse selon vos besoins réels.
+
 ## 📂 Structure du Projet
 
 ```text
