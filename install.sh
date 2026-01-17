@@ -45,5 +45,18 @@ sudo sed -i "s|TOKEN_USER_HOME|$USER_HOME|g" "$BIN_PATH"
 echo -e "${BLUE}[4/4]${NC} Ajout de la tâche Cron au démarrage..."
 (sudo crontab -l 2>/dev/null | grep -v "setup-gpu-fans.sh" ; echo "@reboot $BIN_PATH") | sudo crontab -
 
+# 7. Installation du raccourci bureau (.desktop)
+echo -e "${BLUE}[5/5]${NC} Installation du raccourci bureau..."
+DESKTOP_PATH="$USER_HOME/.local/share/applications/fan-control.desktop"
+mkdir -p "$USER_HOME/.local/share/applications"
+
+cp "$PROJECT_ROOT/assets/fan-control.desktop" "$DESKTOP_PATH"
+
+# Remplacement dynamique du chemin vers l'exécutable
+sed -i "s|Exec=.*|Exec=$USER_HOME/fan-control/target/release/fan-control|g" "$DESKTOP_PATH"
+
+# Donner les droits d'exécution au raccourci
+chmod +x "$DESKTOP_PATH"
+
 echo -e "${GREEN}--- Installation terminée ! ---${NC}"
 echo -e "Veuillez redémarrer votre machine."
