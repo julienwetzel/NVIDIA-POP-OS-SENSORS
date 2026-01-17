@@ -12,13 +12,19 @@ Le système utilise une technique de **"Mount Bind"** au niveau du noyau :
 2. Ces valeurs sont écrites dans des fichiers de cache locaux.
 3. Le système "monte" (superpose) ces fichiers directement sur des registres de température vides (affichant `N/A`) des puces **IT8686** et **IT8792** dans `/sys/class/hwmon`.
 4. L'application de contrôle (Fan Control) voit alors les GPU comme des capteurs matériels natifs.
+Tu as tout à fait raison de le souligner. C'est un point **crucial** car la version Flatpak est isolée dans un "bac à sable" (sandbox) et ne pourra jamais lire les capteurs que nous injectons dans `/sys`. L'installation native est donc **obligatoire**.
+
+---
 
 ## 📋 Prérequis
 
 * **Système :** Pop!_OS (ou toute distribution Linux avec un noyau récent).
-* **Hardware :** Deux GPU NVIDIA (ex: GTX 1080) et des puces de monitoring compatibles (IT8686 / IT8792).
+* **Hardware :** Deux GPU NVIDIA et des puces de monitoring compatibles (IT8686 / IT8792).
 * **Pilotes :** NVIDIA propriétaires installés (`nvidia-smi` fonctionnel).
-* **Logiciel de contrôle :** L'application [Fan Control](https://github.com/wiiznokes/fan-control) (version Rust) située dans `~/fan-control`.
+* **Logiciel de contrôle (IMPORTANT) :** Vous devez utiliser l'application [Fan Control](https://github.com/wiiznokes/fan-control) **compilée directement depuis les sources** (version Rust).
+* ⚠️ **N'utilisez pas la version Flatpak** : En raison du système d'isolation (sandbox) de Flatpak, l'application ne pourra pas accéder aux capteurs virtuels créés par ce bridge ni communiquer correctement avec les pilotes matériels.
+
+---
 
 ## 📂 Structure du Projet
 
