@@ -2,7 +2,7 @@
 Type=Application
 Name=Fan Control
 Comment=Gestion des ventilateurs
-Exec=/home/jwl/fan-control/target/release/fan-control
+Exec=TARGET_PATH_WILL_BE_SET_BY_INSTALLER
 PrefersNonDefaultGPU=true
 Keywords=fan
 Icon=fan
